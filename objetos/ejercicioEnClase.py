@@ -64,37 +64,39 @@ class Empleado:
         self.__tipoContratacion = tipoContratacion
         self.__antiguedad = 2024 - anioIngreso
     def mostrarSalario(self):
-        return print()
+        pass
     
-class PorComision:
-    def __init__(self, salarioMinimo, clientesCaptados, MontoPorCliente):
+class PorComision(Empleado):
+    def __init__(self, dni, nombre, apellido, anioIngreso, tipoContratacion, salarioMinimo, clientesCaptados, MontoPorCliente):
+        super().__init__(dni, nombre, apellido, anioIngreso, tipoContratacion)
         self.__salarioMinimo = salarioMinimo
         self.__clientesCaptados = clientesCaptados
         self.__MontoPorCliente = MontoPorCliente
     def mostrarSalario(self):
         #El salario = clientes captados * monto por cliente
-        salarioComisiones = self.__clientesCaptados * self.__MontoPorCliente   
+        salarioComisiones = self.__clientesCaptados * self.__MontoPorCliente
         if salarioComisiones > self.__salarioMinimo:
-            return self.__salarioMinimo + salarioComisiones
+            salarioAcobrar = salarioComisiones
         else:
-            return self.__salarioMinimo
+            salarioAcobrar = self.__salarioMinimo
+        return print('******\nNombre y apellido: %s %s\nSalario a cobrar: %.2f (%s)\n******\n ' % (self._Empleado__nombre, self._Empleado__apellido, salarioAcobrar, self._Empleado__tipoContratacion.value))
 
-class SueldoFijo:
-    def __init__(self, sueldoBasico, porcAdicional, antiguedad):
+class PorSueldoFijo(Empleado):
+    def __init__(self, dni, nombre, apellido, anioIngreso, tipoContratacion, sueldoBasico, porcAdicional):
+        super().__init__(dni, nombre, apellido, anioIngreso, tipoContratacion)
         self.__sueldoBasico = sueldoBasico
         self.__porcAdicional = porcAdicional
-        self.__antiguedad = antiguedad
-    def mostrarSalario(self):
-        if self.__antiguedad.name == "CAT1":
-            sueldo = self.__sueldoBasico
-        elif self.__antiguedad.name == "CAT2":
-            sueldo = self.__sueldoBasico + self.__sueldoBasico * 0.05
-        else:
-            sueldo = self.__sueldoBasico + self.__sueldoBasico * 0.1
+        self.__antiguedad = 2024 - anioIngreso
+    def mostrarSalario(self):         
+        sueldo = self.__sueldoBasico + self.__sueldoBasico * self.__porcAdicional.value
+        return print('******\nNombre y apellido: %s %s\nSalario a cobrar: %.2f (%s)\n******\n ' % (self._Empleado__nombre, self._Empleado__apellido, sueldo, self._Empleado__tipoContratacion.value))
+        
 
     
+empleadoPorComision01 = PorComision("33222111", "Matias", "Lopez", 2018, CatEmpleado.CAT1, 350, 1, 14)
+print(empleadoPorComision01.mostrarSalario())
 
-
-        
+empleadoPorSueldoFijo01 = PorSueldoFijo("11222333", "Juan", "Flores", 2005, CatEmpleado.CAT2, 400, CatAntiguedad.CAT3)
+print(empleadoPorSueldoFijo01.mostrarSalario())
             
         
