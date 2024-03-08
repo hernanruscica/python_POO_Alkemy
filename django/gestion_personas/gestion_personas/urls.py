@@ -1,5 +1,5 @@
 """
-URL configuration for comision35 project.
+URL configuration for gestion_personas project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.0/topics/http/urls/
@@ -15,13 +15,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from saludo import views
-
-
+from django.urls import path, include  # Importa 'include'
+#from landing import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.hola_mundo, name='Hola mundo'),
-    path('mostrarnombre/', views.mostrar_nombre, name='mostrar_nombre')
+    # path('landing/', views.hola_mundo, name="hola_mundo")
+    path('landing/', include('landing.urls'))
 ]
