@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todos los estudiantes</title>
+</head>
+<body>
+    <h1>CRUD con Django Alkemy</h1>
+    <p>
+        Este es un sistema CRUD realizado como practica del curso de python orientado a objetos de Alkemy y el ministerio de trabajo.        
+    </p>
+    <p>
+        Opciones: 
+        <a href="{% url 'crear_alumno_form' %}" style="font-size: 1.5em;">Crear nuevo estudiante</a>
+    </p>
+    <ul>
+    {% for estudiante in estudiantes_todos %}
+        <li> {{ estudiante.nombre}} {{ estudiante.apellido }}  
+            <a href='/showbyid/{{ estudiante.id }}'>ver</a> - 
+            <a href='/editform/{{ estudiante.id }}'>editar</a> - 
+            <a href='/delete/{{ estudiante.id }}'>eliminar</a>
+        </li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

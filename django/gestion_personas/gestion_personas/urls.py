@@ -22,5 +22,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.hola_mundo, name="hola_mundo"),
     path('landing/', include('landing.urls')),
-    path('create/<str:nombre>/<str:apellido>/<int:edad>/<str:nota_str>/', views.crear_alumno, name='crear_alumno')
+    path('createform/', views.crear_alumno_form, name="crear_alumno_form"),
+    path('create/', views.crear_alumno, name='crear_alumno'),
+    path('showall/', views.mostrar_alumnos, name="mostrar_alumnos"),
+    path('showbyid/<int:id>', views.mostrar_alumno, name =  "mostrar_alumno"),
+    path('editform/<int:id>', views.editar_alumno_form, name =  "editar_alumno_form"),
+    path('edit/', views.editar_alumno, name="editar_alumno"),
+    path('delete/<int:id>', views.eliminar_alumno, name="eliminar_alumno")
 ]
