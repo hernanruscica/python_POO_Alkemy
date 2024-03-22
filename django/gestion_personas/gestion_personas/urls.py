@@ -28,5 +28,6 @@ urlpatterns = [
     path('showbyid/<int:id>', views.mostrar_alumno, name =  "mostrar_alumno"),
     path('editform/<int:id>', views.editar_alumno_form, name =  "editar_alumno_form"),
     path('edit/', views.editar_alumno, name="editar_alumno"),
-    path('delete/<int:id>', views.eliminar_alumno, name="eliminar_alumno")
+    path('delete/<int:id>', views.eliminar_alumno, name="eliminar_alumno"),    
+    path('saludardos/', views.saludar_clase12, name="saludar_clase12")
 ]

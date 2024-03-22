@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from . import models
 
-# Create your views here.
+
 from django.http import HttpResponse
+from django.template import Context, Template
 
 def hola_mundo(request):
     return HttpResponse("¡Hola Mundo!")
@@ -88,3 +89,13 @@ def eliminar_alumno(request, id):
 
     # Redirigir a alguna página de confirmación o a donde desees
     return redirect('/showall')
+
+def saludar_clase12(request):
+    nombre_usuario = 'Juanca'
+    rutaAbsoluta = "E:/Cursos2024/python_POO_Alkemy/django/gestion_personas/landing/templates/saludo2.html"
+    doc_externo = open(rutaAbsoluta)
+    template = Template(doc_externo.read())
+    doc_externo.close()
+    contexto = Context({"nombre_usuario": nombre_usuario})
+    return HttpResponse(template.render(contexto))
+
