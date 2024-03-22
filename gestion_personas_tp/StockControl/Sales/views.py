@@ -9,3 +9,7 @@ def test(request):
 
 def root(request):
     return HttpResponse('Root')
+def products(request):
+    return HttpResponse('Products')
+def suppliers(request):
+    return HttpResponse('suppliers')
