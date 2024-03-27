@@ -29,12 +29,14 @@
             <div class="mb-3">
                 <label for="proveedor" class="form-label">Proveedor</label>
                 <select class="form-select" id="proveedor" name="proveedor" required>
+                    <option value="0" disabled selected>Seleccione el proveedor</option>
                     {% for proveedor in proveedores %}
-                        <option value="{{ proveedor.id }}">{{ proveedor.nombre }}</option>
+                        <option value="{{ proveedor.id }}">{{ proveedor }}</option>
                     {% endfor %}
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="{% url 'products'  %}">Ver listado de productos</a>
         </form>
     </div>
 

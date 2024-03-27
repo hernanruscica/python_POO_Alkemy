@@ -15,18 +15,19 @@
         <form method="POST" action="{% url 'create_supplier' %}">
             {% csrf_token %}
             <div class="mb-3">
-                <label for="nombre" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="nombre" name="nombre" required>
+                <label for="razon_social" class="form-label">Razón social</label>
+                <input type="text" class="form-control" id="razon_social" name="razon_social" required>
             </div>
             <div class="mb-3">
-                <label for="apellido" class="form-label">Apellido</label>
-                <input type="text" class="form-control" id="apellido" name="apellido" required>
+                <label for="cuit" class="form-label">CUIT</label>
+                <input type="text" class="form-control" id="cuit" name="cuit" required>
             </div>
             <div class="mb-3">
-                <label for="dni" class="form-label">DNI</label>
-                <input type="number" class="form-control" id="dni" name="dni" required>
+                <label for="celular" class="form-label">Celular</label>
+                <input type="text" class="form-control" id="celular" name="celular" required>
             </div>
             <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="{% url 'suppliers'  %}">Ver listado de proveedores</a>
         </form>
     </div>
 
