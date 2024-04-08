@@ -22,6 +22,33 @@ def new_product_form(request):
     proveedores = Proveedor.objects.all()
     return render(request, 'new_product_form.html', {'proveedores': proveedores})
 
+
+def edit_product_form(request, id):
+    producto = Producto.objects.get(id=id)
+    proveedores = Proveedor.objects.all()
+    print(producto)
+    return render(request, 'edit_product_form.html', {'producto': producto, 'proveedores': proveedores})
+
+def update_product(request, id):
+     if request.method == 'POST':
+        nombre = request.POST.get('nombre')
+        precio = request.POST.get('precio')
+        stock_actual = request.POST.get('stock_actual')
+        proveedor_id = request.POST.get('proveedor_id')
+        producto = Producto(nombre=nombre, precio=precio, stock_actual=stock_actual, proveedor_id=proveedor_id)
+        producto.save()
+        return redirect('products') 
+
+def delete_product(request, id):
+    # Obtener el producto a eliminar 
+    
+    
+    if request.method == 'POST':   
+        producto = Producto.objects.get(id=id)     
+        producto.delete()
+        return redirect('products')     
+    
+
 def create_supplier(request):
     if request.method == 'POST':
         razon_social = request.POST.get('razon_social')

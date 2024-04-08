@@ -10,12 +10,49 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/mystyle.css' %}">    
 </head>
 <body>
-    {% include 'includes/navbar.html' %}
+    {% include 'includes/navbar.html' %}    
     <div class="container mt-5">
-        
-        <h1>Inicio</h1>
-        
-    </div>
+        <h1 class="text-center">StockControl App 🚀</h1>
+        <h2>Premisa</h2>
+        <p>Construir una aplicación con Django para agregar nuevos clientes y poder listarlos.</p>
+        <h2>Requerimientos</h2>
+        <ul>
+          <li>Crear un proyecto llamado StockControl.</li>
+          <li>Agregar una app llamada compra con modelos Producto y Proveedor.</li>
+          <li>Relacionar Producto con Proveedor usando una foreign key.</li>
+          <li>Crear y ejecutar el archivo migration.</li>
+        </ul>
+        <h2>Funcionalidades</h2>
+        <ul>
+          <li>Agregrar un nuevo Proveedor:</li>
+          <ul>
+            <li>Nombre (texto)</li>
+            <li>Apellido (texto)</li>
+            <li>DNI (integer)</li>
+          </ul>
+          <li>Agregrar un nuevo Producto:</li>
+          <ul>
+            <li>Nombre (texto)</li>
+            <li>Precio (float o integer)</li>
+            <li>Stock actual (integer)</li>
+            <li>Proveedor (foreignkey)</li>
+          </ul>
+          <li>Listar todos los productos registrados en la base de datos.</li>
+        </ul>
+        <h2>Acciones</h2>
+        <ul>
+          <li>Listar productos y agregar nuevos.</li>
+          <li>Permitir alta de proveedores.</li>
+          <li>Administrar productos y proveedores en el Admin.</li>
+        </ul>
+        <h2>Bonus</h2>
+        <ul>
+          <li>Implementar Bootstrap en los HTML.</li>
+          <li>Generar listado de Proveedores.</li>
+          <li>Generar archivo requirements.txt.</li>
+        </ul>
+        <p><strong>Aclaración:</strong> Implementar vistas para listado y alta de productos y proveedores.</p>
+      </div>
     {% include 'includes/footer.html' %}
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

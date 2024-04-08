@@ -33,8 +33,11 @@
                     <td>{{ producto.proveedor }}</td>  <!-- Mostrar el nombre del proveedor -->
                     <td>
                         <a href="{% url 'view_product' producto.id %}" class="btn btn-primary btn-sm"><i class="bi bi-eye"></i></a>
-                        <a href="#" class="btn btn-warning btn-sm"><i class="bi bi-pencil"></i></a>
-                        <a href="#" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a>
+                        <a href="{% url 'edit_product_form' producto.id %}" class="btn btn-warning btn-sm"><i class="bi bi-pencil"></i></a>
+                        <form action="{% url 'delete_product' producto.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button>
+                        </form> 
                     </td>
                 </tr>
                 {% endfor %}
