@@ -31,6 +31,9 @@ def create_supplier(request):
         # Crear instancia del proveedor y guardar en la base de datos
         proveedor = Proveedor(razon_social=razon_social, cuit=cuit, celular=celular)
         proveedor.save()    
+        print(request.POST.get('modal'))
+        if request.POST.get('modal') == "true":
+            return redirect('new_product_form')      
         return redirect('suppliers')  
         #return HttpResponse('proveedor insertado en la BD')
     
